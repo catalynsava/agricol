@@ -9,11 +9,12 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="img/appico.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-  <script type="text/javascript" src="js/jquery-3.6.0.js"></script>
-  <script type="text/javascript" src="js/bootstrap.bundle.js"></script>
-    <title>Document</title>
+    <script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+    <script type="text/javascript" src="js/bootstrap.bundle.js"></script>
+    <title>registrul agricol</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -34,7 +35,7 @@
           <a class="dropdown-item" href="#">actualizare roluri</a>
           <a class="dropdown-item" href="#">configurare strazi</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="logout.php">log out</a>
+          <a class="dropdown-item" href="logout.php">iesire</a>
         </div>
       </li>
       <li class="nav-item dropdown">
