@@ -23,12 +23,7 @@
 	$result = $cnn->query($sql);
 
 	if ($result->num_rows > 0) {
-		$row = $result->fetch_assoc();
-	}
-
-	
-
-	if ($row) {
+		//$row = $result->fetch_assoc();
 		session_start();
 		$_SESSION['timeout'] = time();
 		$_SESSION['username'] = $username;
@@ -38,13 +33,15 @@
 		echo '<button type="button" class="close" data-dismiss="alert">&times;</button>';
 		echo '</div>';
 		echo "<script>window.location='index.php'</script>";
-	} else {
+	}else{
 		echo "<div class='alert alert-danger alert-dismissible fade show col-sm-10' onclick=\"window.location.href='login.html'\">";
 		echo "<strong>Wrong!</strong><small> " . "username and/or password incorrect.." . "</small> <a href='index.php'>continue</a>";
 		echo '<button type="button" class="close" data-dismiss="alert">&times;</button>';
 		echo '</div>';
-		echo "<script>window.location='login.html'</script>";
+		echo "<script>window.location='login.php'</script>";
 	}
+
+
 	?>
 </body>
 
