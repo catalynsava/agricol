@@ -19,12 +19,13 @@
         
         if ($result->num_rows > 0) {
             // output data of each row
-            echo '<ul class="list-group list-group-flush">';
+            echo '<div class="list-group">';
             while($row = $result->fetch_assoc()) {
-                echo '<li class="list-group-item">', $row["idRol"], ' ', $row["nume"], ' ', $row["prenume"],'</li>';
+                //echo '<li class="list-group-item">', $row["idRol"], ' ', $row["nume"], ' ', $row["prenume"],'</li>';
+                echo '<button type="button" class="list-group-item list-group-item-action">', $row["idRol"], ' ', $row["nume"], ' ', $row["prenume"],'</button>';
                 //echo "idrol: " . $row["idRol"]. " - Name: " . $row["nume"]. " " . $row["prenume"]. "<br>";
             }
-            echo '</ul>';
+            echo '</div>';
         } else {
             echo "0 results";
         }

@@ -32,7 +32,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="#">date generale</a>
-          <a class="dropdown-item" href="#">actualizare roluri</a>
+          <a class="dropdown-item" href="" id="roluri">actualizare roluri</a>
           <a class="dropdown-item" href="#">configurare strazi</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="logout.php">iesire</a>
@@ -63,6 +63,51 @@
     </ul>
   </div>
 </nav>
-<div class="container">la la la</div>
+<div class="container" id="continut">la la la</div>
+
+<script>
+        
+        document.getElementById("roluri").onclick=function(){surfing("roluri")};
+        // document.getElementById("servicesbtn").onclick=function(){surfing("service")};
+        // document.getElementById("aboutbtn").onclick=function(){surfing("about")};
+        // document.getElementById("logout").onclick=function(){surfing("logout")};
+
+        surfing("home");
+        
+        function surfing(route) {
+            var xhr=new XMLHttpRequest();
+
+            switch (route) {
+                case "roluri":
+                    xhr.open("GET","roluri.php",true);
+                    break;
+                case "service":
+                    xhr.open("GET","service.html",true);
+                    break;
+                case "about":
+                    xhr.open("GET","about.html",true);
+                    break;
+                case "logout":
+                    xhr.open("GET","logout.php",true)
+                    break;
+                default:
+                    xhr.open("GET","roluri.php",true);
+                    break;
+            }
+
+            
+            xhr.onreadystatechange = function(){
+                console.log(xhr.status);
+                if (xhr.status==200 ) {
+                    document.getElementById("continut").innerHTML=this.responseText;
+                }
+            }
+            xhr.send();
+        }
+
+       
+
+
+    </script>
 </body>
 </html>
