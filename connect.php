@@ -4,6 +4,8 @@
     $username = "root";
     $password = "admin";
     $dbname = "2021";
+
+    $sql="";
     
     $cnn = new mysqli($servername, $username, $password, $dbname);
     // Check connection

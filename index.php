@@ -14,6 +14,7 @@
     
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <script src="js/bootstrap.bundle.min.js"></script>
+   
 
     <title>registrul agricol</title>
 </head>
@@ -21,7 +22,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">AGRICOL</a>
+    <a class="navbar-brand" href="index.php?pagina=tmp">AGRICOL</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -35,7 +36,7 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="#" id="dategen">date generale</a></li>
-            <li><a class="dropdown-item" href="#" id="lala">actualizare roluri</a></li>
+            <li><a class="dropdown-item" href="index.php?pagina=roluri" id="roluri">actualizare roluri</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#" id="logout">iesire</a></li>
           </ul>
@@ -56,61 +57,43 @@
   </tr>
 </table>
 
-
+<script src="js/mine.js"></script>
 <script>
-        //document.getElementById("dategen").onclick=function(){surfing("dategen","detalii")};
-       // document.getElementById("roluri").onclick=function(){surfing("roluri", "continut")};
-        //document.getElementById("logout").onclick=function(){surfing("logout","detalii")};
-        //document.getElementById("rnd1").onclick=function(){surfing("adrrol","detalii")};
-        
-        //surfing("roluri");
-        
-        function surfing(metoda="get", myurl="roluri", where="continut") {
-            var xhr=new XMLHttpRequest();
-            
-
-            switch (myurl) {
-              case "dategen":
-                xhr.open(metoda,"dategen.php",true);
-                break;
-              case "roluri":
-                xhr.open(metoda,"roluri.php",true);
-                break;
-              case "rnd1":
-                xhr.open(metoda,"adrrol.php",true);
-                break;
-              case "service":
-                xhr.open(metoda,"service.html",true);
-                break;
-              case "about":
-                xhr.open(metoda,"about.html",true);
-                break;
-              case "logout":
-                xhr.open(metoda,"logout.php",true)
-                break;
-              default:
-                xhr.open(metoda,"roluri.php",true);
-                break;
-            }
-            alert(where);
-            
-            xhr.onreadystatechange = function(){
-                console.log(xhr.status);
-                if (xhr.status==200 ) {
-                    document.getElementById(where).innerHTML=this.responseText;
-                }
-            }
-            xhr.send();
-        }
-
-    </script>
-    <?php
-      if (isset($_GET['pagina'])) {
-      if ($_GET['pagina']=="roluri") {
-          $strtmp="<script>surfing('post', 'roluri', 'continut' );</script>";
-          echo $strtmp;
+  function gettmp(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("detalii").innerHTML = this.responseText;
       }
+    };
+    xhttp.open("GET", "tmp.php", true);
+    xhttp.send();
   }
-?>
+
+  function homeclick(){
+    document.getElementById("spune").innerHTML="<b>bla bla bla</b>";
+    alert("home click");
+  }
+</script>
+
+    <?php
+      $pagina="";
+      if (isset($_GET['pagina'])) {
+        $pagina=$_GET['pagina'];
+      }
+      
+
+      switch ($pagina) {
+        case 'roluri':
+          echo "<script>getroluri();</script>";
+          break;
+        case 'tmp':
+          echo "<script>gettmp();</script>";
+          break;
+        default:
+          # code...
+          break;
+      }
+    ?>
 </body>
 </html>
