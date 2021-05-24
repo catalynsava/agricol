@@ -64,7 +64,10 @@
 </table>
 
 <script src="js/mine.js"></script>
+<script src="js/incercare.js"></script>
 <script>
+
+  
   function detaliirol(idRol){
     //alert(idRol);
     var xhttp = new XMLHttpRequest();

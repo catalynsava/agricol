@@ -15,13 +15,12 @@
 
 
     <title>roluri</title>
+    <script src="js/incercare.js"></script>
 </head>
 <body>
-   
-    
     <?php
         include_once "connect.php";
-        $limitSQL="limit 20";
+        $limitSQL="LIMIT 20";
                
         $enumSQL = "SELECT adrRol.idRol, adrRol.tip, adrRol.localitate, adrRol.vol, adrRol.poz, adrRol.nume, adrRol.prenume, adrRol.cnp, adrRol.rolIMP FROM adrRol";
         
@@ -72,15 +71,22 @@
         $rows=$result->fetch_all(MYSQLI_ASSOC);
 
         $rnd=0;
-        echo "<table class='table table-sm table-hover'>","\r\n";
-        echo "<tr><th>tip</th><th>vol</th><th>localitate</th><th>poz</th><th>nume</th><th>prenume</th><th>cnp</th><th>rolimp</th></tr>","\r\n";
+        echo "<table class='table table-sm table-hover'>","\r\n\t";
+        echo "<tr><th>tip</th><th>vol</th><th>localitate</th><th>poz</th><th>nume</th><th>prenume</th><th>cnp</th><th>rolimp</th></tr>","\r\n\t";
         foreach ($rows as $row ) {
-            echo '<tr onclick=detaliirol("' . $row['idRol'] . '")><td>' . $row["tip"]. '</td><td>' . $row["vol"]. '</td><td>' . $row["localitate"] . '</td><td>' . $row["poz"] . '</td><td>' . $row["nume"] . '</td><td>' . $row["prenume"] . '</td><td>' . $row["cnp"] . '</td><td>' . $row["rolIMP"] . '</td></tr>',"\r\n\t";
+            echo '<tr onclick=detaliirol("' , $row['idRol'] , '")>',
+                '<td>', $row["tip"], '</td>', 
+                '<td>', $row["vol"], '</td>', 
+                '<td>', $row["localitate"], '</td>', 
+                '<td>', $row["poz"], '</td>', 
+                '<td>', $row["nume"], '</td>', 
+                '<td>', $row["prenume"], '</td>',
+                '<td>', $row["cnp"], '</td>',
+                '<td>', $row["rolIMP"], '</td>', 
+            '</tr>',"\r\n\t";
             $rnd++;
         }
-        echo "</table>","\r\n";
+        echo "</table>", "\r\n";
     ?>
-    
-    <
 </body>
 </html>
