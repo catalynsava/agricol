@@ -46,22 +46,37 @@
   </div>
 </nav>
 
-<table border="1">
+<table border="1" width="100%">
   <tr>
-    <td width="30%">
+    <td>
       <div class="container" id="myhead">header</div>
     </td>
-    
+    <td  colspan="2">&nbsp;</td>
   </tr>
   <tr>
-    <td width="30%">
-      <div class="container" id="mybody">body</div>
+    <td>
+    <div class="overflow-auto" id="mybody">body</div>
+    </td>
+    <td>
+    <div class="container" id="detalii">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque harum perspiciatis ex soluta accusamus vitae aliquam optio unde hic neque, corrupti impedit sunt, voluptas cum quae rerum nam alias voluptatibus?</div>
     </td>
   </tr>
 </table>
 
 <script src="js/mine.js"></script>
 <script>
+  function detaliirol(idRol){
+    //alert(idRol);
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("detalii").innerHTML = this.responseText;
+      }
+    };
+    xhttp.open("GET", "rol.php?idrol=" + idRol, true);
+    xhttp.send();
+  }
+
   function gettmp(){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {

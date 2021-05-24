@@ -14,25 +14,23 @@
 </head>
 <body>
 <form>
-<table class="table" border="1">
+<table class="table table-sm" border="1">
     <tr>
-        <td><input type="text" id="tipCaut" size="5" \></td>
+        <td><input type="text" id="tipCaut" size="2" \></td>
     
-        <td><input type="text" id="volCaut" size="5" \></td>
+        <td><input type="text" id="volCaut" size="2" \></td>
     
-        <td><input type="text" id="localitateCaut" size="15" \></td>
+        <td><input type="text" id="localitateCaut" size="8" \></td>
     
-        <td><input type="text" id="pozCaut" size="5" \></td>
+        <td><input type="text" id="pozCaut" size="2" \></td>
     
-        <td><input type="text" id="numeCaut" size="15" \></td>
+        <td><input type="text" id="numeCaut" size="8" \></td>
     
-        <td><input type="text" id="prenumeCaut" size="15" \></td>
+        <td><input type="text" id="prenumeCaut" size="8" \></td>
     
-        <td><input type="text" id="cnpCaut" size="13" \></td>
+        <td><input type="text" id="cnpCaut" size="5" \></td>
     
-        <td><input type="text" id="rolImpCaut" size="5" \></td>
-    
-        <td><input type="text" id="idRolCaut" size="5" \></td>
+        <td><input type="text" id="rolImpCaut" size="2" \></td>
     
         <td><input type="button" value="cauta" id="btn" onclick="filtruroluri()" \></td>
     </tr>
