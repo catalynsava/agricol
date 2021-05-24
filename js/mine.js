@@ -21,4 +21,6 @@ function postroluri() {
     xhttp.send("tipCaut=1&volCaut=2&localitateCaut=PASCANI");
   }
 
+  
+
  

@@ -49,10 +49,13 @@
 <table border="1">
   <tr>
     <td width="30%">
-      <div class="container" id="continut">la la la</div>
+      <div class="container" id="myhead">header</div>
     </td>
-    <td width="70%">
-    <div class="container" id="detalii">la la la</div>
+    
+  </tr>
+  <tr>
+    <td width="30%">
+      <div class="container" id="mybody">body</div>
     </td>
   </tr>
 </table>
@@ -74,6 +77,32 @@
     document.getElementById("spune").innerHTML="<b>bla bla bla</b>";
     alert("home click");
   }
+
+  function getroluri() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("myhead").innerHTML = this.responseText;
+       }
+    };
+    xhttp.open("GET", "roluri.php", true);
+    xhttp.send();
+  }
+  
+  function filtruroluri() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("mybody").innerHTML= this.responseText;
+            }
+        };
+        xhttp.open("POST", "roluriscript.php?pagina=1", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        var str="";
+        xhttp.send("tipCaut=" + tipCaut.value + "&volCaut=" + volCaut.value + "&localitateCaut=" + localitateCaut.value);
+  }
+
+  
 </script>
 
     <?php

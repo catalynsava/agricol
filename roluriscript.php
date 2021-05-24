@@ -21,17 +21,10 @@
     
     <?php
         include_once "connect.php";
-
+        $limitSQL="";
+               
         $enumSQL = "SELECT adrRol.idRol, adrRol.tip, adrRol.localitate, adrRol.vol, adrRol.poz, adrRol.nume, adrRol.prenume, adrRol.cnp, adrRol.rolIMP FROM adrRol";
         
-        
-        if (isset($_GET['pagina'])) {
-            $pagina=$_GET['pagina'];
-        }else{
-            $pagina=1;
-        }
-        $limitSQL= "LIMIT " . ((15*$pagina)-15) . "," . 15;
-
         $whereSQL="";
         $anterior=false;
         if (isset($_POST['tipCaut'])  && $_POST['tipCaut'] != "") {
@@ -66,18 +59,16 @@
             $anterior=true;
          }
          $anterior=false;
-
-        
+                 
          if ($whereSQL != "") {
             $sql = $enumSQL . " " . $whereSQL;
          }
         
-        echo $sql;
-        
         if ($sql != "") {
             $_SESSION["sql"] = $sql;
         }
-      
+        
+        //echo $_SESSION["sql"] . " " . $limitSQL;
         $result = $cnn->query($_SESSION["sql"] . " " . $limitSQL);
         $rows=$result->fetch_all(MYSQLI_ASSOC);
 
@@ -89,18 +80,5 @@
         }
         echo "</table>";
     ?>
-
-   
-   
-
-    <nav aria-label="Page navigation example">
-    <ul class="pagination">
-        <li class="page-item"><a class="page-link" href="" id="prev">Previous</a></li>
-        <li class="page-item"><a class="page-link" href="">1</a></li>
-        <li class="page-item"><a class="page-link" href="">2</a></li>
-        <li class="page-item"><a class="page-link" href="">3</a></li>
-        <li class="page-item"><a class="page-link" href="" id="next">Next</a></li>
-    </ul>
-    </nav>
 </body>
 </html>

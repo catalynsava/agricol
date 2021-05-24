@@ -8,6 +8,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/bootstrap.bundle.min.js"></script>
     <title>roluri registrul agricol</title>
 </head>
 <body>
@@ -32,29 +34,16 @@
     
         <td><input type="text" id="idRolCaut" size="5" \></td>
     
-        <td><input type="button" value="cauta" id="btn" onclick="roluri()" \></td>
+        <td><input type="button" value="cauta" id="btn" onclick="filtruroluri()" \></td>
     </tr>
 </table>
 </form>
+
 <div id="roluri"></div>
 <script>
-    document.getElementById("btn").onclick=function(){
-        document.getElementById("roluri").innerHTML=roluri();
-    }
-    alert(btn.value);
-    function roluri() {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("roluri").innerHTML= this.responseText;
-        }
-        };
-        xhttp.open("POST", "roluriscript.php?pagina=1", true);
-        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        var str="";
-        xhttp.send("tipCaut=" + tipCaut.value + "&volCaut=" + volCaut.value + "&localitateCaut=" + localitateCaut.value);
- 
-    }
+    
+    
+    
 </script>
 </body>
 </html>
