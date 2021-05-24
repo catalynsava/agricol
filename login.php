@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="img/appico.png">
   <title>Lista Cheltuieli</title>
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
   <script type="text/javascript" src="js/jquery-3.6.0.js"></script>
-  <script type="text/javascript" src="js/bootstrap.bundle.js"></script>
   <link href="css/signin.css" rel="stylesheet">
 </head>
 

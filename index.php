@@ -38,7 +38,7 @@
             <li><a class="dropdown-item" href="#" id="dategen">date generale</a></li>
             <li><a class="dropdown-item" href="index.php?pagina=roluri" id="roluri">actualizare roluri</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#" id="logout">iesire</a></li>
+            <li><a class="dropdown-item" href="index.php?pagina=logout" id="logout">iesire</a></li>
           </ul>
         </li>
       </ul>
@@ -69,7 +69,6 @@
 
   
   function detaliirol(idRol){
-    //alert(idRol);
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
@@ -80,21 +79,21 @@
     xhttp.send();
   }
 
-  function gettmp(){
+  function logout(){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
         document.getElementById("detalii").innerHTML = this.responseText;
       }
     };
-    xhttp.open("GET", "tmp.php", true);
+    xhttp.open("GET", "logout.php", true);
     xhttp.send();
   }
+  
 
-  function homeclick(){
-    document.getElementById("spune").innerHTML="<b>bla bla bla</b>";
-    alert("home click");
-  }
+  
+
+  
 
   function getroluri() {
     var xhttp = new XMLHttpRequest();
@@ -127,15 +126,16 @@
       $pagina="";
       if (isset($_GET['pagina'])) {
         $pagina=$_GET['pagina'];
+      }else{
+        echo "<script>getroluri();</script>";
       }
       
-
       switch ($pagina) {
         case 'roluri':
           echo "<script>getroluri();</script>";
           break;
-        case 'tmp':
-          echo "<script>gettmp();</script>";
+        case "logout":
+          echo "<script>logout();</script>";
           break;
         default:
           # code...

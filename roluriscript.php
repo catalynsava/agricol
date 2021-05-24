@@ -18,11 +18,15 @@
     <script src="js/incercare.js"></script>
 </head>
 <body>
+
     <?php
         include_once "connect.php";
         $limitSQL="LIMIT 20";
                
         $enumSQL = "SELECT adrRol.idRol, adrRol.tip, adrRol.localitate, adrRol.vol, adrRol.poz, adrRol.nume, adrRol.prenume, adrRol.cnp, adrRol.rolIMP FROM adrRol";
+
+        $orderSQL=" ORDER BY adrRol.tip, adrRol.localitate, adrRol.vol, ABS(adrRol.poz)";
+        
         
         $whereSQL="";
         $anterior=false;
@@ -60,7 +64,7 @@
          $anterior=false;
                  
          if ($whereSQL != "") {
-            $sql = $enumSQL . " " . $whereSQL;
+            $sql = $enumSQL . " " . $whereSQL . " " . $orderSQL;
          }
         
         if ($sql != "") {
@@ -74,7 +78,7 @@
         echo "<table class='table table-sm table-hover'>","\r\n\t";
         echo "<tr><th>tip</th><th>vol</th><th>localitate</th><th>poz</th><th>nume</th><th>prenume</th><th>cnp</th><th>rolimp</th></tr>","\r\n\t";
         foreach ($rows as $row ) {
-            echo '<tr onclick=detaliirol("' , $row['idRol'] , '")>',
+            echo '<tr onclick=detaliirol("' , $row['idRol'] , '") style="cursor:pointer;">',
                 '<td>', $row["tip"], '</td>', 
                 '<td>', $row["vol"], '</td>', 
                 '<td>', $row["localitate"], '</td>', 
@@ -88,5 +92,15 @@
         }
         echo "</table>", "\r\n";
     ?>
+
+    <nav aria-label="...">
+    <ul class="pagination pagination-sm justify-content-end">
+        <li class="page-item active" aria-current="page">
+        <span class="page-link">1</span>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+    </ul>
+    </nav>
 </body>
 </html>

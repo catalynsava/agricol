@@ -12,7 +12,6 @@
 <?php
   include_once "connect.php";
   if (isset($_GET['idrol'])) {
-    //echo $_GET['idrol'];
 
     $selSql="SELECT * FROM adrrol WHERE idrol=\"" . $_GET['idrol'] . "\"";
     $result = $cnn->query($selSql);
@@ -20,7 +19,9 @@
 
   }
 ?>
+<p class="h3 text-center">date rol</p>
 <form class="row g-3">
+<!-- -------------------------------------------------------------------------------------- -->
   <div class="col-md-3">    <!--    denumire    -->
     <label for="tiptxt" class="form-label">tip</label>
     <input type="text" class="form-control" id="tiptxt" value="<?php echo $rows[0]['tip'] ?>">
@@ -116,11 +117,11 @@
     <label class="form-check-label" for="semnatcheck">s-a semnat declarația</label>
     <input class="form-check-input" type="checkbox" value="" id="anulatcheck">
     <label class="form-check-label" for="anulatcheck">rol anulat</label>
-    <button type="submit" class="btn btn-primary">salveaza</button>
+    <button type="button" id="btnAdaugare" class="btn btn-primary">adaugare</button>
+    <button type="buttob" id="btnStergere" class="btn btn-primary">ștergere</button>
+    <button type="button" id="btnSalvare" class="btn btn-primary">salvare</button>
   </div>
   <!-- -------------------------------------------------------------------------------------- -->
-  <!-- -------------------------------------------------------------------------------------- -->
 </form>
-
 </body>
 </html>

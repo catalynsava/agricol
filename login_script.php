@@ -5,17 +5,15 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
 	<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
-	<script type="text/javascript" src="js/bootstrap.bundle.js"></script>
 	<title>login result</title>
 </head>
-
 <body>
 	<?php include "connect.php"; ?>
 	<?php include "functii.php"; ?>
 	<?php
-
 	$username = stripcslashes($_POST['username']);
 	$password = stripcslashes($_POST['password']);
 
@@ -40,9 +38,6 @@
 		echo '</div>';
 		echo "<script>window.location='login.php'</script>";
 	}
-
-
 	?>
 </body>
-
 </html>
